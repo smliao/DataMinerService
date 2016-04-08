@@ -2,7 +2,9 @@ package com.data.miner.domain;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,8 +12,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Document(collection = UserProfile.COLLECTION_NAME)
+@ToString
+@Getter
 @AllArgsConstructor
-@Data
+@NoArgsConstructor
 public class UserProfile {
 
     public static final String COLLECTION_NAME = "userProfile";
@@ -27,9 +31,6 @@ public class UserProfile {
 
     public static UserProfile userProfile(String username, List<String> subreddit, Boolean nsfw_tag){
         return new UserProfile(
-                UUID.randomUUID().toString(),
-                username,
-                subreddit,
-                nsfw_tag);
+                UUID.randomUUID().toString(), username, subreddit, nsfw_tag);
     }
 }
