@@ -4,6 +4,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
 
     compile "org.projectlombok:lombok:1.16.6"
     compile group: 'com.google.guava', name: 'guava', version: '12.0'
