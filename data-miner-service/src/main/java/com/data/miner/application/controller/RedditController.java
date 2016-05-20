@@ -1,7 +1,6 @@
 package com.data.miner.application.controller;
 
 import com.data.miner.application.controller.paths.RedditUrlPaths;
-import com.data.miner.application.controller.paths.UrlPaths;
 import com.data.miner.application.service.RedditService;
 import com.data.miner.application.service.reddit.dto.SubRedditDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +17,6 @@ public class RedditController {
 
     @Autowired
     private RedditService redditService;
-
-    @RequestMapping(value = UrlPaths.TEST, method = RequestMethod.GET)
-    public ResponseEntity<String> testingSpringBootApplication() {
-        return new ResponseEntity<>("Greetings from Reddit boot page", HttpStatus.OK);
-    }
 
     @RequestMapping(value = RedditUrlPaths.SUBREDDIT, method = RequestMethod.GET)
     public ResponseEntity<SubRedditDto> retrieveBySubReddit(@PathVariable String subreddit) {
