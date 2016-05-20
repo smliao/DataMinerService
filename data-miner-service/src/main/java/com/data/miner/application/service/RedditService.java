@@ -1,6 +1,7 @@
 package com.data.miner.application.service;
 
 import com.data.miner.application.service.reddit.dto.SubRedditDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -10,11 +11,8 @@ import java.net.URISyntaxException;
 @Service
 public class RedditService {
 
+    @Autowired
     private RestTemplate restTemplate;
-
-    public RedditService() {
-        restTemplate = new RestTemplate();
-    }
 
     public SubRedditDto retrieveSubreddit(String subreddit) {
 
