@@ -5,6 +5,8 @@ import com.data.miner.domain.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserProfileService {
 
@@ -17,5 +19,9 @@ public class UserProfileService {
 
     public UserProfile create(UserProfile userProfile) {
         return userProfileRepository.save(userProfile);
+    }
+
+    public List<UserProfile> findAll() {
+        return userProfileRepository.findAll();
     }
 }

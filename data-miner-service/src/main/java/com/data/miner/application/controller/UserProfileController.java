@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import java.util.List;
+
 @RestController
 @RequestMapping(value = UrlPaths.ROOT_PATH, method = RequestMethod.GET)
-public class DataMinerController {
+public class UserProfileController {
 
     @Autowired
     private UserProfileService userProfileService;
@@ -25,8 +28,18 @@ public class DataMinerController {
         return new ResponseEntity<>("Greetings from Spring Boot!", HttpStatus.OK);
     }
 
-    @RequestMapping(value = UrlPaths.CREATE_PROFILE, method = RequestMethod.POST)
-    public ResponseEntity<UserProfileResponseResource> create(@RequestBody UserProfileRequestResource userProfileRequestResource){
+    @RequestMapping(value = UrlPaths.USER_PROFILE, method = RequestMethod.GET)
+    public ResponseEntity<List<UserProfileResponseResource>> findAll() {
+
+        List<UserProfile> userProfiles = userProfileService.findAll();
+
+        List<UserProfileResponseResource> result = UserProfileResponseResource.toResourceList(userProfiles);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = UrlPaths.ALL_USERS, method = RequestMethod.POST)
+    public ResponseEntity<UserProfileResponseResource> create(@Valid @RequestBody UserProfileRequestResource userProfileRequestResource) {
         UserProfile userProfile = userProfileRequestResource.toDomain();
 
         UserProfile createdUserProfile = userProfileService.create(userProfile);
@@ -35,5 +48,4 @@ public class DataMinerController {
 
         return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
-
 }

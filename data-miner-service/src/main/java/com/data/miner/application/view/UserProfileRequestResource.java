@@ -1,9 +1,11 @@
 package com.data.miner.application.view;
 
 import com.data.miner.domain.UserProfile;
+import com.sun.istack.internal.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.List;
 
@@ -12,10 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 public class UserProfileRequestResource {
 
+    @NotNull
     private String username;
 
+    @NotEmpty
     private List<String> subreddit;
 
+    @NotNull
     private Boolean nsfw_tag;
 
     public UserProfile toDomain() {
