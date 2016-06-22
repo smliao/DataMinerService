@@ -17,16 +17,17 @@ public class UserProfileRequestResource {
     @NotNull
     private String username;
 
+    @NotNull
+    private int age;
+
     @NotEmpty
     private List<String> subreddit;
 
-    @NotNull
-    private Boolean nsfw_tag;
 
     public UserProfile toDomain() {
         return UserProfile.userProfile(
                 this.username,
-                this.subreddit,
-                this.nsfw_tag);
+                this.age,
+                this.subreddit);
     }
 }

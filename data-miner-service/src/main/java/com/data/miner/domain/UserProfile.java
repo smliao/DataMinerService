@@ -4,7 +4,6 @@ package com.data.miner.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -24,12 +23,12 @@ public class UserProfile {
 
     private String username;
 
+    private int age;
+
     private List<String> subreddit;
 
-    private Boolean nsfw_tag;
-
-    public static UserProfile userProfile(String username, List<String> subreddit, Boolean nsfw_tag) {
+    public static UserProfile userProfile(String username, int age, List<String> subreddit) {
         return new UserProfile(
-                UUID.randomUUID().toString(), username, subreddit, nsfw_tag);
+                UUID.randomUUID().toString(), username, age, subreddit);
     }
 }

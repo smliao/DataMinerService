@@ -16,12 +16,12 @@ public class UserProfileResponseResource {
 
     private String username;
 
+    private int age;
+
     private List<String> subreddit;
 
-    private Boolean nsfw_tag;
-
     public static UserProfileResponseResource toResource(UserProfile userProfile) {
-        return new UserProfileResponseResource(userProfile.getUsername(), userProfile.getSubreddit(), userProfile.getNsfw_tag());
+        return new UserProfileResponseResource(userProfile.getUsername(), userProfile.getAge(), userProfile.getSubreddit());
     }
 
     public static List<UserProfileResponseResource> toResourceList(List<UserProfile> userProfiles) {
@@ -30,7 +30,7 @@ public class UserProfileResponseResource {
             @Override
             public UserProfileResponseResource apply(@Nullable UserProfile input) {
                 assert input != null;
-                return new UserProfileResponseResource(input.getUsername(), input.getSubreddit(), input.getNsfw_tag());
+                return new UserProfileResponseResource(input.getUsername(), input.getAge(), input.getSubreddit());
             }
         });
     }
