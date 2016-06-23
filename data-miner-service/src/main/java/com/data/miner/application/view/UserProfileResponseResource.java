@@ -14,6 +14,8 @@ import java.util.List;
 @Data
 public class UserProfileResponseResource {
 
+    private String id;
+
     private String username;
 
     private int age;
@@ -21,7 +23,7 @@ public class UserProfileResponseResource {
     private List<String> interest;
 
     public static UserProfileResponseResource toResource(UserProfile userProfile) {
-        return new UserProfileResponseResource(userProfile.getUsername(), userProfile.getAge(), userProfile.getInterest());
+        return new UserProfileResponseResource(userProfile.getId(), userProfile.getUsername(), userProfile.getAge(), userProfile.getInterest());
     }
 
     public static List<UserProfileResponseResource> toResourceList(List<UserProfile> userProfiles) {
@@ -30,7 +32,7 @@ public class UserProfileResponseResource {
             @Override
             public UserProfileResponseResource apply(@Nullable UserProfile input) {
                 assert input != null;
-                return new UserProfileResponseResource(input.getUsername(), input.getAge(), input.getInterest());
+                return new UserProfileResponseResource(input.getId(), input.getUsername(), input.getAge(), input.getInterest());
             }
         });
     }

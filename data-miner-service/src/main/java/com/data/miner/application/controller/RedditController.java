@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = RedditUrlPaths.REDDIT_BASE_URL, method = RequestMethod.GET)
+@RequestMapping(value = RedditUrlPaths.REDDIT_BASE_URL)
 public class RedditController {
 
     @Autowired

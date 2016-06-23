@@ -1,6 +1,7 @@
 package com.data.miner.domain;
 
 
+import com.data.miner.domain.update.UserProfileUpdate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -30,5 +31,14 @@ public class UserProfile {
     public static UserProfile userProfile(String username, int age, List<String> interest) {
         return new UserProfile(
                 UUID.randomUUID().toString(), username, age, interest);
+    }
+
+    public UserProfile updateWith(UserProfileUpdate updateData) {
+
+        this.username = updateData.getUsername();
+        this.age = updateData.getAge();
+        this.interest = updateData.getInterest();
+
+        return this;
     }
 }
