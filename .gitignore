@@ -2,6 +2,7 @@
 *.ipr
 *.ids
 *.iws
+*.jar
 
 .DS_Store
 .idea/

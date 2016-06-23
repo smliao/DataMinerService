@@ -25,10 +25,10 @@ public class UserProfile {
 
     private int age;
 
-    private List<String> subreddit;
+    private List<String> interest;
 
-    public static UserProfile userProfile(String username, int age, List<String> subreddit) {
+    public static UserProfile userProfile(String username, int age, List<String> interest) {
         return new UserProfile(
-                UUID.randomUUID().toString(), username, age, subreddit);
+                UUID.randomUUID().toString(), username, age, interest);
     }
 }

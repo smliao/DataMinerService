@@ -28,7 +28,7 @@ public class UserProfileController {
         return new ResponseEntity<>("Greetings from Spring Boot!", HttpStatus.OK);
     }
 
-    @RequestMapping(value = UrlPaths.USER_PROFILE, method = RequestMethod.GET)
+    @RequestMapping(value = UrlPaths.ALL_USERS, method = RequestMethod.GET)
     public ResponseEntity<List<UserProfileResponseResource>> findAll() {
 
         List<UserProfile> userProfiles = userProfileService.findAll();
@@ -38,7 +38,7 @@ public class UserProfileController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(value = UrlPaths.ALL_USERS, method = RequestMethod.POST)
+    @RequestMapping(value = UrlPaths.USER_PROFILE, method = RequestMethod.POST)
     public ResponseEntity<UserProfileResponseResource> create(@Valid @RequestBody UserProfileRequestResource userProfileRequestResource) {
         UserProfile userProfile = userProfileRequestResource.toDomain();
 

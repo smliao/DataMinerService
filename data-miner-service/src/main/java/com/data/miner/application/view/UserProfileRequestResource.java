@@ -21,13 +21,13 @@ public class UserProfileRequestResource {
     private int age;
 
     @NotEmpty
-    private List<String> subreddit;
+    private List<String> interest;
 
 
     public UserProfile toDomain() {
         return UserProfile.userProfile(
                 this.username,
                 this.age,
-                this.subreddit);
+                this.interest);
     }
 }
