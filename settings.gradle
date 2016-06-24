@@ -1,4 +1,4 @@
 rootProject.name = 'DataMinerService'
 
-include 'data-miner-service'
+include 'data-miner-service', 'acceptance-test'
 
